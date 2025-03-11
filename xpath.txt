@@ -1,0 +1,8 @@
+//h2[@class="chakra-heading css-1dklj6k" and text()="Sign upppp"]
+//label[contains(@class, "chakra-form__label") and contains(@class, "css-g6pte")]
+//input[contains(@class, "chakra-input") and contains(@class, "css-1cjy4zv")]
+//label[contains(@class, "chakra-form__label") and contains(@class, "css-g6pte")]
+//input[contains(@class, "chakra-input") and contains(@class, "css-1cjy4zv")]
+//label[contains(@class, "chakra-form__label") and contains(@class, "css-g6pte")]
+//input[contains(@class, "chakra-input") and contains(@class, "css-1cjy4zv")]
+//button[contains(@class, "chakra-button") and contains(@class, "css-1qqymvj")]
