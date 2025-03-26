@@ -1,0 +1,13 @@
+- Bug Report: Lỗi chính tả trong tiêu đề form đăng ký
+
+- Mô tả lỗi:
++ Tiêu đề của form đăng ký hiển thị là "Sign upppp" có lỗi chính tả (thừa chữ "p"). Gây nhầm lẫn cho người dùng và ảnh hưởng đến tính chuyên nghiệp của giao diện.
+- Các bước test:
++ Phần tiêu đề của form, nội dung bên trong thẻ <h2 class="chakra-heading css-1dklj6k">.
++ Tiêu đề hiển thị là "Sign upppp" thay vì "Sign Up".
+- Kết quả mong đợi:
++ Tiêu đề nên được hiển thị chính xác là "Sign Up" để phù hợp với nội dung và tiêu chuẩn ngôn ngữ.
+- Kết quả thực tế:
++ Tiêu đề được hiển thị là "Sign upppp", có thêm các chữ "p" không cần thiết.
+- Cách khắc phục:
++ Sửa lại nội dung tiêu đề trong thẻ <h2> từ "Sign upppp" thành "Sign Up" để đảm bảo tính chính xác và chuyên nghiệp của giao diện.
