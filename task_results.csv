@@ -1,0 +1,13 @@
+Timestamp,Task,Result,Details,Response Time
+2025-03-26 23:47:17,UI Check,Success,Tất cả các thành phần UI được hiển thị đúng.,0.06
+2025-03-26 23:47:19,Logic Validation,Success,Thông báo lỗi hiển thị khi không nhập dữ liệu.,2.04
+2025-03-26 23:47:22,Security Test,Success,Không phát hiện XSS.,2.04
+2025-03-26 23:50:16,UI Check,Success,All essential UI elements are visible.,0.06
+2025-03-26 23:50:18,Empty Input Validation,Success,Error messages displayed for empty inputs.,2.12
+2025-03-26 23:50:20,Input Validation - Email missing '@',Success,"Proper error messages displayed for case: invalid-email, ValidPass123, ValidPass123",2.29
+2025-03-26 23:50:22,Input Validation - Email without proper domain,Success,"Proper error messages displayed for case: user@invalid, ValidPass123, ValidPass123",2.18
+2025-03-26 23:50:25,Input Validation - Email with multiple '@',Success,"Proper error messages displayed for case: user@@example.com, ValidPass123, ValidPass123",2.2
+2025-03-26 23:50:27,Input Validation - Password too short,Success,"Proper error messages displayed for case: test@example.com, 123, 123",2.16
+2025-03-26 23:50:29,Input Validation - Password mismatch,Success,"Proper error messages displayed for case: test@example.com, ValidPass123, DifferentPass",2.2
+2025-03-26 23:50:31,Security Test - XSS,Success,No XSS vulnerability detected.,2.15
+2025-03-26 23:50:33,Performance Test - Valid Submission,Failure,Valid submission did not process as expected.,2.21
