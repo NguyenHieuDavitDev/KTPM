@@ -1,0 +1,74 @@
+Timestamp,Email,Password,Result
+2025-03-26 23:08:33,test@example.com,123456,Đăng ký thất bại
+2025-03-26 23:12:07,,,,Đăng ký thất bại
+2025-03-26 23:12:13,invalid-email,ValidPass123,ValidPass123,Đăng ký thất bại
+2025-03-26 23:12:18,test@example.com,ValidPass123,DifferentPass123,Đăng ký thất bại
+2025-03-26 23:12:22,test@example.com,123,123,Đăng ký thất bại
+2025-03-26 23:12:27,test@example.com,ValidPass123,ValidPass123,Đăng ký thất bại
+2025-03-26 23:15:05,,,,Đăng ký thất bại
+2025-03-26 23:15:10,existing@example.com,ValidPass123,ValidPass123,Đăng ký thất bại
+2025-03-26 23:15:12,existing@example.com,NewPass123,NewPass123,Đăng ký thất bại
+2025-03-26 23:15:16,invalid-email,ValidPass123,ValidPass123,Đăng ký thất bại
+2025-03-26 23:15:21,test@example.com,alllowercase123,alllowercase123,Đăng ký thất bại
+2025-03-26 23:15:26,test@example.com,12345678,12345678,Đăng ký thất bại
+2025-03-26 23:15:30,test@example.com,ValidPass123,DifferentPass123,Đăng ký thất bại
+2025-03-26 23:15:35,test@example.com,123,123,Đăng ký thất bại
+2025-03-26 23:15:39,!@#$%^&*()@example.com,ValidPass123,ValidPass123,Đăng ký thất bại
+2025-03-26 23:15:44,test@example.com,ValidPass123,ValidPass123,Đăng ký thất bại
+2025-03-26 23:15:48, , , ,Đăng ký thất bại
+2025-03-26 23:17:43,,,,Đăng ký thành công
+2025-03-26 23:17:48,existing@example.com,ValidPass123,ValidPass123,Đăng ký thành công
+2025-03-26 23:17:50,existing@example.com,NewPass123,NewPass123,Đăng ký thành công
+2025-03-26 23:17:55,invalid-email,ValidPass123,ValidPass123,Đăng ký thành công
+2025-03-26 23:17:59,test@example.com,alllowercase123,alllowercase123,Đăng ký thành công
+2025-03-26 23:18:04,test@example.com,12345678,12345678,Đăng ký thành công
+2025-03-26 23:18:08,test@example.com,ValidPass123,DifferentPass123,Đăng ký thành công
+2025-03-26 23:18:13,test@example.com,123,123,Đăng ký thành công
+2025-03-26 23:18:17,!@#$%^&*()@example.com,ValidPass123,ValidPass123,Đăng ký thành công
+2025-03-26 23:18:22,test@example.com,ValidPass123,ValidPass123,Đăng ký thành công
+2025-03-26 23:18:27, , , ,Đăng ký thành công
+2025-03-26 23:21:05,,,,Đăng ký thất bại
+2025-03-26 23:21:10,existing@example.com,ValidPass123,ValidPass123,Đăng ký thất bại
+2025-03-26 23:21:13,existing@example.com,NewPass123,NewPass123,Đăng ký thất bại
+2025-03-26 23:21:17,invalid-email,ValidPass123,ValidPass123,Đăng ký thất bại
+2025-03-26 23:21:22,test@example.com,alllowercase123,alllowercase123,Đăng ký thất bại
+2025-03-26 23:21:26,test@example.com,12345678,12345678,Đăng ký thất bại
+2025-03-26 23:21:32,test@example.com,ValidPass123,DifferentPass123,Đăng ký thất bại
+2025-03-26 23:21:36,test@example.com,123,123,Đăng ký thất bại
+2025-03-26 23:21:41,!@#$%^&*()@example.com,ValidPass123,ValidPass123,Đăng ký thất bại
+2025-03-26 23:21:46,test@example.com,ValidPass123,ValidPass123,Đăng ký thất bại
+2025-03-26 23:21:51, , , ,Đăng ký thất bại
+2025-03-26 23:26:31,user@@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.07
+2025-03-26 23:26:36,invalidemail.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.04
+2025-03-26 23:26:42,user@invalid,ValidPass123,ValidPass123,Đăng ký thất bại,2.12
+2025-03-26 23:26:48,"{""email"":""test@example.com""}",ValidPass123,ValidPass123,Đăng ký thất bại,2.1
+2025-03-26 23:26:53,test@example.com,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Đăng ký thất bại,2.04
+2025-03-26 23:26:58,spam@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.08
+2025-03-26 23:27:00,spam@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.03
+2025-03-26 23:27:03,spam@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.03
+2025-03-26 23:27:06,spam@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.04
+2025-03-26 23:27:09,spam@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.04
+2025-03-26 23:27:15,' OR 1=1 --,ValidPass123,ValidPass123,Đăng ký thất bại,2.04
+2025-03-26 23:27:20,<script>alert('XSS')</script>,ValidPass123,ValidPass123,Đăng ký thất bại,2.05
+2025-03-26 23:27:26,test@example.com,<script>alert('Hacked')</script>,<script>alert('Hacked')</script>,Đăng ký thất bại,2.05
+2025-03-26 23:30:28,invalid-email,ValidPass123,ValidPass123,Đăng ký thất bại,2.04
+2025-03-26 23:30:30,user@invalid,ValidPass123,ValidPass123,Đăng ký thất bại,2.04
+2025-03-26 23:30:33,user@@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.03
+2025-03-26 23:30:35,<script>alert('XSS')</script>,ValidPass123,ValidPass123,Đăng ký thất bại,2.03
+2025-03-26 23:30:37,' OR 1=1 --,ValidPass123,ValidPass123,Đăng ký thất bại,2.03
+2025-03-26 23:30:39,"{""email"":""test@example.com""}",ValidPass123,ValidPass123,Đăng ký thất bại,2.03
+2025-03-26 23:30:42,test@example.com,123,123,Đăng ký thất bại,2.11
+2025-03-26 23:30:44,test@example.com,alllowercase123,alllowercase123,Đăng ký thất bại,2.03
+2025-03-26 23:30:46,test@example.com,ValidPass123,DifferentPass123,Đăng ký thất bại,2.03
+2025-03-26 23:30:48,test@example.com,12345678,12345678,Đăng ký thất bại,2.03
+2025-03-26 23:30:51,test@example.com,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Đăng ký thất bại,2.03
+2025-03-26 23:30:53,test@example.com,<script>alert('Hacked')</script>,<script>alert('Hacked')</script>,Đăng ký thất bại,2.06
+2025-03-26 23:30:55,,,,Đăng ký thất bại,2.03
+2025-03-26 23:30:58, , , ,Đăng ký thất bại,2.03
+2025-03-26 23:31:00,   test@example.com   ,   ValidPass123   ,   ValidPass123   ,Đăng ký thất bại,2.03
+2025-03-26 23:31:05,spam@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.02
+2025-03-26 23:31:08,spam@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.03
+2025-03-26 23:31:11,spam@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.03
+2025-03-26 23:31:14,spam@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.03
+2025-03-26 23:31:16,spam@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.04
+2025-03-26 23:31:23,test@example.com,ValidPass123,ValidPass123,Đăng ký thất bại,2.03

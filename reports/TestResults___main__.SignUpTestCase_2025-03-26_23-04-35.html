@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unittest Results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-capitalize">Unittest Results</h2>
+                <p class='attribute'><strong>Start Time: </strong>2025-03-26 23:04:35</p>
+                <p class='attribute'><strong>Duration: </strong>30.88 s</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 1, Pass: 0, Error: 1</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>__main__.SignUpTestCase</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='warning'>
+                            <td class="col-xs-10">test_signup</td>
+                            <td class="col-xs-1">
+                                <span class="label label-warning" style="display:block;width:40px;">Error</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p style="color:maroon;">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=134.0.6998.166)
+Stacktrace:
+0   chromedriver                        0x00000001030cf6c8 cxxbridge1$str$ptr + 2791212
+1   chromedriver                        0x00000001030c7c9c cxxbridge1$str$ptr + 2759936
+2   chromedriver                        0x0000000102c19e30 cxxbridge1$string$len + 92928
+3   chromedriver                        0x0000000102bf3a00 chromedriver + 129536
+4   chromedriver                        0x0000000102c89418 cxxbridge1$string$len + 549096
+5   chromedriver                        0x0000000102ca20f8 cxxbridge1$string$len + 650696
+6   chromedriver                        0x0000000102c552fc cxxbridge1$string$len + 335820
+7   chromedriver                        0x00000001030946c4 cxxbridge1$str$ptr + 2549544
+8   chromedriver                        0x0000000103097988 cxxbridge1$str$ptr + 2562540
+9   chromedriver                        0x000000010307471c cxxbridge1$str$ptr + 2418560
+10  chromedriver                        0x00000001030981e8 cxxbridge1$str$ptr + 2564684
+11  chromedriver                        0x0000000103065750 cxxbridge1$str$ptr + 2357172
+12  chromedriver                        0x00000001030b7f58 cxxbridge1$str$ptr + 2695100
+13  chromedriver                        0x00000001030b80e0 cxxbridge1$str$ptr + 2695492
+14  chromedriver                        0x00000001030c7910 cxxbridge1$str$ptr + 2759028
+15  libsystem_pthread.dylib             0x0000000186af3fa8 _pthread_start + 148
+16  libsystem_pthread.dylib             0x0000000186aeeda0 thread_start + 8
+</p><p style="color:maroon;">Traceback (most recent call last):
+  File "/Users/hieu/Documents/Python2/First_TC_Automation/First_TC_Automation.py", line 33, in test_signup
+    email_field = driver.find_element(By.XPATH, "//*[@id='field-:r0:']")
+  File "/Users/hieu/Documents/Python2/First_TC_Automation/.venv/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py", line 898, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+  File "/Users/hieu/Documents/Python2/First_TC_Automation/.venv/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "/Users/hieu/Documents/Python2/First_TC_Automation/.venv/lib/python3.9/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=134.0.6998.166)
+Stacktrace:
+0   chromedriver                        0x00000001030cf6c8 cxxbridge1$str$ptr + 2791212
+1   chromedriver                        0x00000001030c7c9c cxxbridge1$str$ptr + 2759936
+2   chromedriver                        0x0000000102c19e30 cxxbridge1$string$len + 92928
+3   chromedriver                        0x0000000102bf3a00 chromedriver + 129536
+4   chromedriver                        0x0000000102c89418 cxxbridge1$string$len + 549096
+5   chromedriver                        0x0000000102ca20f8 cxxbridge1$string$len + 650696
+6   chromedriver                        0x0000000102c552fc cxxbridge1$string$len + 335820
+7   chromedriver                        0x00000001030946c4 cxxbridge1$str$ptr + 2549544
+8   chromedriver                        0x0000000103097988 cxxbridge1$str$ptr + 2562540
+9   chromedriver                        0x000000010307471c cxxbridge1$str$ptr + 2418560
+10  chromedriver                        0x00000001030981e8 cxxbridge1$str$ptr + 2564684
+11  chromedriver                        0x0000000103065750 cxxbridge1$str$ptr + 2357172
+12  chromedriver                        0x00000001030b7f58 cxxbridge1$str$ptr + 2695100
+13  chromedriver                        0x00000001030b80e0 cxxbridge1$str$ptr + 2695492
+14  chromedriver                        0x00000001030c7910 cxxbridge1$str$ptr + 2759028
+15  libsystem_pthread.dylib             0x0000000186af3fa8 _pthread_start + 148
+16  libsystem_pthread.dylib             0x0000000186aeeda0 thread_start + 8
+
+</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 1, Pass: 0, Error: 1 -- Duration: 30.88 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('td').on('click', '.btn', function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                var $this = $(this);
+                var $nextRow = $this.closest('tr').next('tr');
+                $nextRow.slideToggle("fast");
+                $this.text(function(i, text){
+                    if (text === 'View') {
+                        return 'Hide';
+                    } else {
+                        return 'View';
+                    };
+                });
+            });
+        });
+    </script>
+</body>
+</html
