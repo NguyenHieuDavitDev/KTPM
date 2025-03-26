@@ -1,0 +1,302 @@
+
+    <!DOCTYPE html>
+    <html lang="vi">
+      <head>
+        <meta charset="utf-8">
+        <title>Báo cáo VnExpress</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+        <style>
+          body {
+            padding: 20px;
+          }
+          .report-header {
+            margin-bottom: 30px;
+          }
+          .report-header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+          }
+          .report-header p {
+            font-size: 1.2rem;
+          }
+          .chart-section {
+            margin: 40px 0;
+          }
+          .img-thumb {
+            max-width: 100px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <header class="report-header text-center">
+            <h1><i class="fas fa-newspaper"></i> Báo cáo VnExpress</h1>
+            <p><i class="fas fa-chart-pie"></i> Tổng số bài báo: 27</p>
+          </header>
+          <section class="chart-section text-center">
+            <h2><i class="fas fa-chart-bar"></i> Biểu đồ độ dài tiêu đề</h2>
+            <img src="chart.png" alt="Biểu đồ độ dài tiêu đề" class="img-fluid">
+          </section>
+          <section class="news-list">
+            <h2 class="mb-3"><i class="fas fa-list"></i> Danh sách bài báo</h2>
+            <div class="table-responsive">
+              <table id="newsTable" class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Hình ảnh</th>
+                    <th>Tiêu đề</th>
+                    <th>Mô tả</th>
+                    <th>Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+    
+                  <tr>
+                    <td>1</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/z6444097957303-a04bb6f3301326e-8476-4163-1742991782.jpg?w=680&h=408&q=100&dpr=2&fit=crop&s=GnhJkRG32xDEovYVItaPNQ" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Tổng Bí thư hoan nghênh Việt Nam - Singapore tăng hợp tác về năng lượng xanh</td>
+                    <td>Tổng Bí thư Tô Lâm hoan nghênh và ủng hộ đề xuất hợp tác với Singapore trong lĩnh vực năng lượng xanh và mạng lưới điện xanh trong khu vực, cũng như các lĩnh vực khác.</td>
+                    <td><a href="https://vnexpress.net/tong-bi-thu-hoan-nghenh-viet-nam-singapore-tang-hop-tac-ve-nang-luong-xanh-4866261.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/tong-bi-thu-hoan-nghenh-viet-nam-singapore-tang-hop-tac-ve-nang-luong-xanh-4866261.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>2</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/2025-03-21t163635z-985503578-r-2470-5474-1742999638.jpg?w=300&h=180&q=100&dpr=2&fit=crop&s=6dGR9Xbijh9pvIewrrcUGg" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Báo Mỹ đăng toàn bộ kế hoạch tác chiến trong nhóm chat Nhà Trắng</td>
+                    <td></td>
+                    <td><a href="https://vnexpress.net/bao-my-dang-toan-bo-ke-hoach-tac-chien-trong-nhom-chat-nha-trang-4866284.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/bao-my-dang-toan-bo-ke-hoach-tac-chien-trong-nhom-chat-nha-trang-4866284.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>3</td>
+                    <td><img src="https://i1-kinhdoanh.vnecdn.net/2025/03/26/dsc01660-jpg-1742997158-3560-1742997235.jpg?w=300&h=180&q=100&dpr=2&fit=crop&s=-lfFKKwdAJZ4kAWxBy6pBQ" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>100% thủ tục liên quan doanh nghiệp sẽ làm trực tuyến</td>
+                    <td></td>
+                    <td><a href="https://vnexpress.net/100-thu-tuc-lien-quan-doanh-nghiep-se-lam-truc-tuyen-4866279.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/100-thu-tuc-lien-quan-doanh-nghiep-se-lam-truc-tuyen-4866279.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>4</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2024/09/14/Minhhoangremovebgpreviewpng-1726327161.png?w=100&h=100&q=100&dpr=2&fit=crop&s=fCDERe0TGY3WgC_P78d5RA" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Sáp nhập tỉnh, đặt tên thế nào?</td>
+                    <td>Tên gọi mới là gì, người dân cũng sẽ quen, quan trọng hơn là phát triển thế nào sau sáp nhập.</td>
+                    <td><a href="https://vnexpress.net/sap-nhap-tinh-dat-ten-the-nao-vnepre-4866056.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/sap-nhap-tinh-dat-ten-the-nao-vnepre-4866056.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>5</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/z6444381673091-b7348cac63ce47f98c7411feccab7fc2-1742983893-1742984984.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=IycVpBxi7x5WxlsxCaJiAg" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Phu nhân Thủ tướng Singapore mặc áo dài, xem múa rối nước</td>
+                    <td>Bà Loo Tze Lui, phu nhân Thủ tướng Singapore Lawrence Wong, mặc áo dài khi cùng bà Ngô Phương Ly, phu nhân Tổng Bí thư Tô Lâm, thưởng thức văn hóa nghệ thuật dân gian Việt Nam.</td>
+                    <td><a href="https://vnexpress.net/phu-nhan-thu-tuong-singapore-mac-ao-dai-xem-mua-roi-nuoc-4866241.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/phu-nhan-thu-tuong-singapore-mac-ao-dai-xem-mua-roi-nuoc-4866241.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>6</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/dji-20241211095759-0713-d-enha-4081-8647-1742981378.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=qvqpfrVOFY4YcJP9xv9hNA" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Phó thủ tướng yêu cầu xử lý ô nhiễm không khí Hà Nội</td>
+                    <td>Phó thủ tướng Trần Hồng Hà giao các bộ ngành phối hợp với TP Hà Nội xây dựng đề án trình Thủ tướng để xử lý tình trạng ô nhiễm không khí tại Thủ đô.</td>
+                    <td><a href="https://vnexpress.net/pho-thu-tuong-yeu-cau-xu-ly-o-nhiem-khong-khi-ha-noi-4866202.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/pho-thu-tuong-yeu-cau-xu-ly-o-nhiem-khong-khi-ha-noi-4866202.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>7</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/DSC-0347-JPG-1742983141.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=mehbpoDGGtRfhpIkpI71ow" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Hiện trường vụ sản xuất ma túy 'tay nghề cao' lớn nhất từ trước đến nay</td>
+                    <td>Khánh HòaKhu xưởng hơn 1.300 m2 được Trương Xuân Minh và nhóm đồng hương Trung Quốc "có kinh nghiệm, tay nghề cao sản xuất ma túy" mở tại Nha Trang để cho ra hàng tấn ketamin.</td>
+                    <td><a href="https://vnexpress.net/hien-truong-vu-san-xuat-ma-tuy-tay-nghe-cao-lon-nhat-tu-truoc-den-nay-vnepre-4866234.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/hien-truong-vu-san-xuat-ma-tuy-tay-nghe-cao-lon-nhat-tu-truoc-den-nay-vnepre-4866234.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>8</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/0bcdc4a09cb72ce975a6-174298464-1977-4796-1742989366.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=whIGqMqSpDIVsmMUH_rc6w" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Bà Trương Mỹ Lan xin tạo điều kiện khắc phục hậu quả tốt nhất</td>
+                    <td>TP HCMBà Trương Mỹ Lan cho rằng bị buộc 3 tội danh ở giai đoạn hai đại án là không đúng, song xin tòa phúc thẩm tạo điều kiện để khắc phục hậu quả vụ án tốt nhất.</td>
+                    <td><a href="https://vnexpress.net/ba-truong-my-lan-xin-tao-dieu-kien-khac-phuc-hau-qua-tot-nhat-4866243.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/ba-truong-my-lan-xin-tao-dieu-kien-khac-phuc-hau-qua-tot-nhat-4866243.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>9</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/donald-trump-jpg-1743006629-8956-1743006658.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=7wN5VlkdCZleS-4g6ksUHA" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Ông Trump: Mỹ phải có được Greenland</td>
+                    <td>Tổng thống Trump tái khẳng định Mỹ cần phải kiểm soát Greenland, ngay trước thềm chuyến thăm của Phó tổng thống Vance tới hòn đảo tự trị thuộc Đan Mạch.</td>
+                    <td><a href="https://vnexpress.net/ong-trump-my-phai-co-duoc-greenland-4866320.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/ong-trump-my-phai-co-duoc-greenland-4866320.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>10</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/img-0814-1742971165-1742971296-3278-2599-1742971998.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=B6J43gZm2C_zTZCn15ixYA" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Kẹt giữa đèo vì quá tự tin vào quãng đường của xe điện</td>
+                    <td>Xuất phát từ chân đèo khi pin còn 22%, chủ xe điện đã kẹt ở đỉnh đèo vì cạn pin, phải gọi xe cứu hộ chở đến chỗ sạc.</td>
+                    <td><a href="https://vnexpress.net/ket-giua-deo-vi-qua-tu-tin-vao-quang-duong-cua-xe-dien-4865902.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/ket-giua-deo-vi-qua-tu-tin-vao-quang-duong-cua-xe-dien-4865902.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>11</td>
+                    <td><img src="https://i1-giaitri.vnecdn.net/2025/03/26/a86533541f9353ce1493fb74970c7a-8849-2187-1743004938.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=a3S3sgv54B-j2Q5FfG2rjw" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Dàn diễn viên gây bức xúc khi đi xe cứu thương đến sự kiện</td>
+                    <td>TP HCMĐoàn phim có diễn viên Đại Nghĩa, Bạch Công Khanh gây bức xúc khi dùng xe cứu thương sai mục đích, tối 26/3.</td>
+                    <td><a href="https://vnexpress.net/dan-dien-vien-gay-buc-xuc-khi-di-xe-cuu-thuong-den-su-kien-4866322.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/dan-dien-vien-gay-buc-xuc-khi-di-xe-cuu-thuong-den-su-kien-4866322.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>12</td>
+                    <td><img src="https://i1-thethao.vnecdn.net/2025/03/26/4_1742996622-1742998949.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=W9zLOni494meQvjsQAF4KQ" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Agassi thể hiện tài nghệ pickleball trước khán giả Việt Nam</td>
+                    <td>TP HCM1.200 khán giả thích thú khi tận mắt chứng kiến huyền thoại quần vợt Andre Agassi thi đấu trên sân pickleball, chiều 26/3.</td>
+                    <td><a href="https://vnexpress.net/agassi-the-hien-tai-nghe-pickleball-truoc-khan-gia-viet-nam-4866307.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/agassi-the-hien-tai-nghe-pickleball-truoc-khan-gia-viet-nam-4866307.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>13</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/afp-20250324-37pp7t2-v1-highre-9931-9050-1742994363.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=aX4WYbPvvHHhveLC0Izbwg" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Nga, Ukraine cáo buộc nhau vi phạm thỏa thuận ngừng tập kích</td>
+                    <td>Nga - Ukraine cáo buộc lẫn nhau phá hoại thỏa thuận ngừng tập kích, khi tiến hành các cuộc tấn công quy mô lớn vào hạ tầng năng lượng.</td>
+                    <td><a href="https://vnexpress.net/nga-ukraine-cao-buoc-nhau-vi-pham-thoa-thuan-ngung-tap-kich-4866270.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/nga-ukraine-cao-buoc-nhau-vi-pham-thoa-thuan-ngung-tap-kich-4866270.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>14</td>
+                    <td><img src="https://i1-sohoa.vnecdn.net/2025/03/26/dsc09674-9919-1742963624-17429-3534-1793-1742964401.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=Q5Oewfrd8A6hpl7rtAph-Q" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Internet vệ tinh của Musk được 'thí điểm có kiểm soát' tại Việt Nam</td>
+                    <td>Dịch vụ Internet vệ tinh Starlink của SpaceX được thí điểm triển khai trong 5 năm, tối đa 600.000 thuê bao, đảm bảo yêu cầu về quốc phòng, an ninh</td>
+                    <td><a href="https://vnexpress.net/internet-ve-tinh-cua-musk-duoc-thi-diem-co-kiem-soat-tai-viet-nam-4866066.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/internet-ve-tinh-cua-musk-duoc-thi-diem-co-kiem-soat-tai-viet-nam-4866066.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>15</td>
+                    <td><img src="https://i1-sohoa.vnecdn.net/2025/03/25/DSC01376JPG-1742897012-5586-1742897132.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=-kfre9vuWOC4Nk6QXUnssw" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>SuperNode của Pi Network bị nghi ngờ tính phi tập trung</td>
+                    <td>Cơ chế xác thực SuperNode gây nghi ngờ về tính phi tập trung của blockchain do vẫn được đội ngũ Pi Network đứng sau kiểm soát.</td>
+                    <td><a href="https://vnexpress.net/supernode-cua-pi-network-bi-nghi-ngo-tinh-phi-tap-trung-4865690.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/supernode-cua-pi-network-bi-nghi-ngo-tinh-phi-tap-trung-4865690.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>16</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/vne3385-jpeg-1742956593-3475-1-7991-9945-1742963593.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=ragqwp386Gx8SVnyf1xK8A" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Bộ Nội vụ muốn bảo lưu lương công chức 6 tháng sau sáp nhập</td>
+                    <td>Bộ Nội vụ đề xuất bảo lưu chế độ, tiền lương và phụ cấp chức vụ trong 6 tháng cho cán bộ, công chức, viên chức từ đơn vị hành chính cũ sang làm việc tại các tỉnh, xã sau sáp nhập.</td>
+                    <td><a href="https://vnexpress.net/bo-noi-vu-muon-bao-luu-luong-cong-chuc-6-thang-sau-sap-nhap-4865894.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/bo-noi-vu-muon-bao-luu-luong-cong-chuc-6-thang-sau-sap-nhap-4865894.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>17</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/afp-20241219-36qq3vb-v1-highre-1985-7457-1742992416.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=gl7zZJQAfz8ZcpXbAlfp4A" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Nga nêu điều kiện kích hoạt thỏa thuận ngừng bắn Biển Đen</td>
+                    <td>Điện Kremlin nói các bên cần xóa bỏ rào cản với xuất khẩu lương thực và phân bón Nga, trước khi có thể kích hoạt thỏa thuận Biển Đen mới.</td>
+                    <td><a href="https://vnexpress.net/nga-neu-dieu-kien-kich-hoat-thoa-thuan-ngung-ban-bien-den-4866249.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/nga-neu-dieu-kien-kich-hoat-thoa-thuan-ngung-ban-bien-den-4866249.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>18</td>
+                    <td><img src="https://i1-thethao.vnecdn.net/2025/03/26/indonesia-bahrain-vong-loai-ba-8218-6429-1742956838.png?w=220&h=132&q=100&dpr=2&fit=crop&s=lsBXj9JDk7Vp6fgMroZcrg" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Điều kiện để Indonesia vào thẳng VCK World Cup 2026</td>
+                    <td>IndonesiaChiến thắng trước Bahrain giúp Indonesia nuôi hy vọng chiếm vị trí thứ hai của Australia ở bảng C để giành vé chính thức dự World Cup 2026.</td>
+                    <td><a href="https://vnexpress.net/dieu-kien-de-indonesia-vao-thang-vck-world-cup-2026-4865968.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/dieu-kien-de-indonesia-vao-thang-vck-world-cup-2026-4865968.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>19</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/maty-1742978071-1395-1742978540.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=X7k8j-RS86JmQfH8BDv2WQ" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Xưởng sản xuất ma túy quy mô lớn nhất nước bị phát hiện</td>
+                    <td>Khánh HòaTrương Xuân Minh với vỏ bọc doanh nhân đã thuê hơn 1.300 m2 đất ở thành phố Nha Trang lắp đặt dây chuyền sản xuất ma túy, cho ra 1,4 tấn ketamin tinh khiết rất cao.</td>
+                    <td><a href="https://vnexpress.net/to-chuc-san-xuat-ma-tuy-cuc-lon-o-nha-trang-bi-triet-pha-4866182.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/to-chuc-san-xuat-ma-tuy-cuc-lon-o-nha-trang-bi-triet-pha-4866182.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>20</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/anhmanhinh20250326luc145708-17-2032-9759-1742976021.png?w=220&h=132&q=100&dpr=2&fit=crop&s=6PC6TPUkecSbj8cLlI8XOg" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Nhà xã hội tại Thanh Hóa của tỷ phú Phạm Nhật Vượng gần một tỷ mỗi căn</td>
+                    <td>Khu nhà ở xã hội Vinhomes Star City tại Thanh Hoá dự kiến bàn giao tháng 11/2025, có giá bán bình quân tối đa khoảng 20,6 triệu đồng một m2.</td>
+                    <td><a href="https://vnexpress.net/nha-xa-hoi-tai-thanh-hoa-cua-ty-phu-pham-nhat-vuong-gan-mot-ty-moi-can-4866151.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/nha-xa-hoi-tai-thanh-hoa-cua-ty-phu-pham-nhat-vuong-gan-mot-ty-moi-can-4866151.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>21</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/Ukraine-1742981431-6930-1742982204.png?w=220&h=132&q=100&dpr=2&fit=crop&s=_WsT6OHersWU0myxK0wWZw" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Quê hương Tổng thống Zelensky bị tập kích UAV 'lớn chưa từng thấy'</td>
+                    <td>Ukraine nói Nga phóng 117 UAV tập kích nước này, trong đó Kryvyi Rih, quê hương ông Zelensky, bị nhiều phi cơ tấn công nhất từ đầu xung đột.</td>
+                    <td><a href="https://vnexpress.net/que-huong-tong-thong-zelensky-bi-tap-kich-uav-lon-chua-tung-thay-4866193.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/que-huong-tong-thong-zelensky-bi-tap-kich-uav-lon-chua-tung-thay-4866193.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>22</td>
+                    <td><img src="https://i1-kinhdoanh.vnecdn.net/2025/03/26/233a1096-1742964486-1742964498-9864-1742964617.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=H4WmpqyVS7WZR_mUTu1BKA" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Giá vàng tăng hơn nửa triệu đồng</td>
+                    <td>Các tiệm kim hoàn hôm nay tăng giá mua vào khoảng 600.000 đồng một lượng, còn bán ra nhích thêm 300.000 đồng, giúp chênh lệch giữa hai chiều thu hẹp.</td>
+                    <td><a href="https://vnexpress.net/moi-luong-vang-tang-vai-tram-ngan-dong-4866080.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/moi-luong-vang-tang-vai-tram-ngan-dong-4866080.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>23</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/thu-tuong-israel-jpeg-17429883-7267-2445-1742989293.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=PuK1vteqYRSzYP5vpXFXmQ" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Thủ tướng Israel dọa chiếm lãnh thổ ở Gaza</td>
+                    <td>Thủ tướng Israel tuyên bố lực lượng nước này sẽ chiếm giữ lãnh thổ ở Dải Gaza nếu Hamas không thả những con tin còn lại.</td>
+                    <td><a href="https://vnexpress.net/thu-tuong-israel-doa-chiem-lanh-tho-o-gaza-4866256.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/thu-tuong-israel-doa-chiem-lanh-tho-o-gaza-4866256.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>24</td>
+                    <td><img src="https://i1-thethao.vnecdn.net/2025/03/26/dong8442-jpg-1742979409-174297-5299-4200-1742980544.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=nAMTIGR3o2CWEVgo4HAT7A" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Andre Agassi: 'Tiềm năng pickleball Việt Nam rất lớn'</td>
+                    <td>TP HCMHuyền thoại quần vợt Andre Agassi, từng giành 8 Grand Slam, tiếc vì bây giờ mới được đến Việt Nam nhưng hy vọng sẽ góp phần thúc đẩy phát triển pickleball nơi đây.</td>
+                    <td><a href="https://vnexpress.net/andre-agassi-tiem-nang-pickleball-viet-nam-rat-lon-4866206.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/andre-agassi-tiem-nang-pickleball-viet-nam-rat-lon-4866206.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>25</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/VNE4864-JPG-4901-1742961594.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=_UhhbhZi7SENvPnWcnaS1Q" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Bộ Nội vụ gợi ý cách đặt tên xã mới sau sáp nhập</td>
+                    <td>Bộ Nội vụ khuyến khích các địa phương đặt tên cho xã mới theo tên của huyện cũ kèm theo số thứ tự để dễ dàng quản lý và cập nhật dữ liệu điện tử.</td>
+                    <td><a href="https://vnexpress.net/bo-noi-vu-goi-y-cach-dat-ten-xa-moi-sau-sap-nhap-4865898.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/bo-noi-vu-goi-y-cach-dat-ten-xa-moi-sau-sap-nhap-4865898.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>26</td>
+                    <td><img src="https://i1-vnexpress.vnecdn.net/2025/03/26/bien-den-1742964848-1742965063-1221-1742965502.jpg?w=220&h=132&q=100&dpr=2&fit=crop&s=elYXmO_h-IHr0zTdMCUBOg" alt="Hình ảnh" class="img-thumbnail img-thumb"></td>
+                    <td>Thỏa thuận Biển Đen mới có thể trao thêm lợi ích cho Nga</td>
+                    <td>Lệnh ngừng bắn hạn chế giữa Ukraine và Nga trên Biển Đen sẽ đi kèm đề xuất giúp Moskva thúc đẩy xuất khẩu nông sản và mở khóa cho ngân hàng nước này.</td>
+                    <td><a href="https://vnexpress.net/thoa-thuan-bien-den-moi-co-the-trao-them-loi-ich-cho-nga-4865899.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/thoa-thuan-bien-den-moi-co-the-trao-them-loi-ich-cho-nga-4865899.html</a></td>
+                  </tr>
+        
+                  <tr>
+                    <td>27</td>
+                    <td>Không có</td>
+                    <td>Tiền vệ Trung Quốc hứng chỉ trích vì đạp cầu thủ Việt Nam</td>
+                    <td>Trung QuốcKuai Jiwen thoát thẻ đỏ, nhưng bị cộng đồng mạng công kích vì cú đạp vào đùi Viktor Le ở hiệp một trận Trung Quốc hòa Việt Nam 1-1 ở giải giao hữu cấp độ U22 CFA China Team 2025.</td>
+                    <td><a href="https://vnexpress.net/tien-ve-trung-quoc-hung-chi-trich-vi-dap-cau-thu-viet-nam-4866086.html" target="_blank"><i class="fas fa-external-link-alt"></i> https://vnexpress.net/tien-ve-trung-quoc-hung-chi-trich-vi-dap-cau-thu-viet-nam-4866086.html</a></td>
+                  </tr>
+        
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <!-- jQuery, Popper.js, Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- DataTables JS -->
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+          $(document).ready(function() {{
+            $('#newsTable').DataTable({{
+              "pageLength": 10,
+              "lengthChange": true,
+              "searching": true,
+              "ordering": true,
+              "info": true,
+              "autoWidth": false
+            }});
+          }});
+        </script>
+      </body>
+    </html>
+    
