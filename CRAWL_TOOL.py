@@ -19,34 +19,29 @@ def get_best_image_from_source(srcset_string, base_url):
     """
     srcset_string thường có dạng:
       "https://...1.jpg?w=220 1x, https://...2.jpg?w=220 2x"
-    Ta tách theo dấu ',' và ưu tiên dòng có '2x'. Nếu không thấy, lấy dòng cuối.
+    Tách theo dấu ',' và ưu tiên dòng có "2x". Nếu không thấy, lấy dòng cuối.
     """
     if not srcset_string:
         return ""
-    # Tách thành các phần tử ["https://...1.jpg 1x", " https://...2.jpg 2x"]
     candidates = [c.strip() for c in srcset_string.split(",") if c.strip()]
     if not candidates:
         return ""
-
-    # Thử tìm dòng có "2x"
     best_url = ""
     for c in candidates:
         if "2x" in c:
-            # c dạng "https://...2.jpg 2x"
-            best_url = c.split()[0]  # Lấy phần đầu (URL)
+            best_url = c.split()[0]
             break
-
-    # Nếu không tìm thấy "2x", lấy dòng cuối
     if not best_url:
         last_candidate = candidates[-1]
         best_url = last_candidate.split()[0]
-
     return fix_url(best_url, base_url)
 
 
-def crawl_vnexpress():
+def crawl_category(category_url, category_name):
     """
-    Ví dụ crawl trang chủ VnExpress để minh họa cách lấy ảnh trong <picture>.
+    Crawl bài báo trong một danh mục cụ thể của VnExpress.
+    Chúng ta cố gắng lấy dữ liệu từ các khối bài viết (ở đây dùng h3 làm điểm lấy tiêu đề)
+    và xử lý hình ảnh từ thẻ <picture> nếu có.
     """
     base_url = "https://vnexpress.net"
     headers = {
@@ -54,77 +49,110 @@ def crawl_vnexpress():
                        "AppleWebKit/537.36 (KHTML, like Gecko) "
                        "Chrome/90.0.4430.93 Safari/537.36")
     }
-    response = requests.get(base_url, headers=headers)
-    if response.status_code != 200:
-        print("Không thể truy cập trang web")
+    try:
+        response = requests.get(category_url, headers=headers, timeout=10)
+    except Exception as e:
+        print(f"Lỗi khi truy cập {category_url}: {e}")
         return []
+
+    if response.status_code != 200:
+        print(f"Không thể truy cập trang {category_url} - HTTP {response.status_code}")
+        return []
+
     soup = BeautifulSoup(response.text, 'html.parser')
+    items = []
 
-    news_items = []
-    # Duyệt qua tất cả các thẻ <h3> chứa tiêu đề bài báo
-    for h3 in soup.find_all('h3'):
-        a_tag = h3.find('a')
-        if a_tag and a_tag.get('href'):
-            title = a_tag.get_text(strip=True)
-            link = fix_url(a_tag['href'], base_url)
+    # Nếu cấu trúc bên trong danh mục dùng tag <article> (thường xuất hiện ở VnExpress)
+    # Bạn có thể điều chỉnh selector dưới đây theo cấu trúc thực tế.
+    articles = soup.find_all("article")
+    if not articles:
+        # Fallback: duyệt theo h3 như trang chủ
+        articles = soup.find_all("h3")
 
-            # Lấy mô tả: cố gắng lấy thẻ <p> liền sau h3
-            description = ""
-            next_p = h3.find_next_sibling('p')
-            if next_p:
-                description = next_p.get_text(strip=True)
+    for container in articles:
+        # Nếu container là <article>, tìm h3 bên trong container;
+        # nếu container đã là h3 thì sử dụng luôn.
+        h3 = container if container.name == "h3" else container.find("h3")
+        if not h3:
+            continue
+        a_tag = h3.find("a")
+        if not (a_tag and a_tag.get("href")):
+            continue
+        title = a_tag.get_text(strip=True)
+        link = fix_url(a_tag["href"], base_url)
 
-            # Lấy URL hình ảnh:
-            parent = h3.parent
-            img_url = ""
+        # Lấy mô tả: cố gắng lấy thẻ <p> bên trong container
+        description = ""
+        p_tag = container.find("p")
+        if p_tag:
+            description = p_tag.get_text(strip=True)
 
-            if parent:
-                # Tìm <picture>
-                picture_tag = parent.find("picture")
-                if picture_tag:
-                    # Ưu tiên lấy <source data-srcset> hoặc <source srcset>
-                    source_tag = picture_tag.find("source", attrs={"data-srcset": True})
-                    if source_tag and source_tag["data-srcset"]:
-                        img_url = get_best_image_from_source(source_tag["data-srcset"], base_url)
-                    else:
-                        # Thử srcset thường
-                        source_tag = picture_tag.find("source", attrs={"srcset": True})
-                        if source_tag and source_tag["srcset"]:
-                            img_url = get_best_image_from_source(source_tag["srcset"], base_url)
+        # Lấy URL hình ảnh:
+        img_url = ""
+        # Ưu tiên xử lý thẻ <picture> nếu có
+        picture_tag = container.find("picture")
+        if picture_tag:
+            # Ưu tiên <source data-srcset>
+            source_tag = picture_tag.find("source", attrs={"data-srcset": True})
+            if source_tag and source_tag.get("data-srcset"):
+                img_url = get_best_image_from_source(source_tag["data-srcset"], base_url)
+            else:
+                # Thử lấy source với srcset
+                source_tag = picture_tag.find("source", attrs={"srcset": True})
+                if source_tag and source_tag.get("srcset"):
+                    img_url = get_best_image_from_source(source_tag["srcset"], base_url)
+            # Nếu chưa có, fallback sang <img> trong <picture>
+            if not img_url:
+                img_in_picture = picture_tag.find("img")
+                if img_in_picture and img_in_picture.get("src"):
+                    img_url = fix_url(img_in_picture["src"], base_url)
+        # Nếu không có <picture>, tìm <img> trực tiếp trong container
+        if not img_url:
+            img_tag = container.find("img")
+            if img_tag and img_tag.get("src"):
+                img_url = fix_url(img_tag["src"], base_url)
 
-                    # Nếu chưa có, fallback sang <img> trong <picture>
-                    if not img_url:
-                        img_in_picture = picture_tag.find("img")
-                        if img_in_picture and img_in_picture.get("src"):
-                            img_url = fix_url(img_in_picture["src"], base_url)
+        items.append((title, link, description, img_url, category_name))
+    print(f"[{category_name}] Tìm thấy {len(items)} bài viết.")
+    return items
 
-                # Nếu không có <picture> hoặc không tìm thấy ảnh, fallback <img> cũ
-                if not img_url:
-                    img_tag = parent.find("img")
-                    if img_tag and img_tag.get('src'):
-                        img_url = fix_url(img_tag['src'], base_url)
 
-            news_items.append((title, link, description, img_url))
-    return news_items
+def crawl_all_categories():
+    """
+    Định nghĩa danh sách các danh mục để crawl.
+    Bạn có thể bổ sung thêm hoặc thay đổi theo nhu cầu.
+    """
+    categories = [
+        {"name": "Trang chủ", "url": "https://vnexpress.net"},
+        {"name": "Kinh doanh", "url": "https://vnexpress.net/kinh-doanh"},
+        {"name": "Công nghệ", "url": "https://vnexpress.net/cong-nghe"},
+        {"name": "Giải trí", "url": "https://vnexpress.net/giai-tri"},
+        {"name": "Thể thao", "url": "https://vnexpress.net/the-thao"},
+        {"name": "Video", "url": "https://vnexpress.net/video"}
+    ]
+    all_items = []
+    for cat in categories:
+        items = crawl_category(cat["url"], cat["name"])
+        all_items.extend(items)
+    return all_items
 
 
 def store_to_mysql(news_items):
     try:
         conn = pymysql.connect(host='127.0.0.1', user='root', password='', db='newsdb', charset='utf8mb4')
         cursor = conn.cursor()
-        # Tạo bảng nếu chưa tồn tại (bao gồm trường image_url)
         create_table_query = """
             CREATE TABLE IF NOT EXISTS znews (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 title VARCHAR(255),
                 link VARCHAR(255),
                 description TEXT,
-                image_url VARCHAR(512)
+                image_url VARCHAR(512),
+                category VARCHAR(50)
             )
         """
         cursor.execute(create_table_query)
-        # Chèn dữ liệu (lưu ý: nếu chạy nhiều lần, dữ liệu có thể bị trùng)
-        insert_query = "INSERT INTO znews (title, link, description, image_url) VALUES (%s, %s, %s, %s)"
+        insert_query = "INSERT INTO znews (title, link, description, image_url, category) VALUES (%s, %s, %s, %s, %s)"
         cursor.executemany(insert_query, news_items)
         conn.commit()
         cursor.close()
@@ -143,7 +171,7 @@ def generate_report():
         print("Lỗi khi đọc dữ liệu từ MySQL:", e)
         return None
 
-    # Tạo biểu đồ: ví dụ so sánh độ dài tiêu đề
+    # Tạo biểu đồ: ví dụ so sánh độ dài tiêu đề của các bài viết
     df['title_length'] = df['title'].apply(len)
     plt.figure(figsize=(10, 6))
     plt.bar(df['id'], df['title_length'], color='skyblue')
@@ -154,7 +182,6 @@ def generate_report():
     plt.savefig(chart_file)
     plt.close()
 
-    # Xây dựng nội dung HTML
     html_content = f"""
     <!DOCTYPE html>
     <html lang="vi">
@@ -180,9 +207,6 @@ def generate_report():
           }}
           .report-header p {{
             font-size: 1.2rem;
-          }}
-          .chart-section {{
-            margin: 40px 0;
           }}
           .img-thumb {{
             max-width: 100px;
@@ -210,6 +234,7 @@ def generate_report():
                     <th>Tiêu đề</th>
                     <th>Mô tả</th>
                     <th>Link</th>
+                    <th>Danh mục</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -226,6 +251,7 @@ def generate_report():
                     <td>{row['title']}</td>
                     <td>{row['description']}</td>
                     <td><a href="{row['link']}" target="_blank"><i class="fas fa-external-link-alt"></i> {row['link']}</a></td>
+                    <td>{row['category']}</td>
                   </tr>
         """
     html_content += """
@@ -264,8 +290,9 @@ def generate_report():
 
 
 if __name__ == "__main__":
-    news_items = crawl_vnexpress()
-    print(f"Tìm thấy {len(news_items)} bài báo.")
+    # Crawl dữ liệu từ các danh mục bên trong trang VnExpress
+    news_items = crawl_all_categories()
+    print(f"Tổng số bài báo thu thập được: {len(news_items)}")
 
     if news_items:
         store_to_mysql(news_items)
