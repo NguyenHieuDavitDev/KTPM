@@ -9,7 +9,7 @@ Một nền tảng toàn diện để thu thập, phân tích và trực quan h�
 ```
 project-root/
 │
-├── crawlFPT/         # Module thu thập dữ liệu
+├── crawl/         # Thu thập dữ liệu
 │   ├── src/
 │   │   ├── crawlers/
 │   │   ├── utils/

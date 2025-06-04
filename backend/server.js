@@ -7,7 +7,7 @@ const categoriesRouter = require("./routes/categories");
 const productsRouter = require("./routes/products");
 
 const app = express();
-const PORT = 5001; // Thay đổi port từ 5000 sang 5001
+const PORT = 5001;
 
 app.use(cors());
 app.use(bodyParser.json());
